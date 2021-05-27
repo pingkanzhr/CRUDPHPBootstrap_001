@@ -7,7 +7,7 @@
 
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-
+    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
     <title>Data Mahasiswa</title>
   </head>
   <body>
@@ -27,8 +27,50 @@
     </div>
   </div>
   </nav>
+
+  <div class="container data-mashasiswa mt-5">
+    <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahData">
+    Tambah Data
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="tambahData" tabindex="-1" aria-labelledby="tambahDatalabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+       <form action="tambahstore.php" method="post" name="form" >
+          <div class="modal-header">
+            <h5 class="modal-title" id="tambahDatalabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            
+          <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Mahasiswa" name="nama">
+          </div>
+          <div class="mb-3">
+            <label for="nim" class="form-label">Nim</label>
+            <input type="text" class="form-control" id="nim" placeholder="Masukkan Nim Mahasiswa" name="nim">
+          </div>
+          <div class="mb-3">
+            <label for="alamat" class="form-label">Alamat</label>
+            <textarea class="form-control" id="alamat" rows="3" name="alamat"></textarea>
+          </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">SIMPAN</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
   <div class="container data-mahasiswa mt-5">
-    <table class="table table-striped">
+    <table class="table table-striped" id="datamahasiswa">
         <thead>
             <tr>
                 <th scope="col">No. </th>
@@ -62,5 +104,13 @@
                 </table>
             </div> 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>    
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+          $(document).ready(function() {
+            $('#datamahasiswa').DataTable();
+          } );
+        </script>
   </body>
 </html>
